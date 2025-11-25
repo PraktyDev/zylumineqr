@@ -68,7 +68,7 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default: "bg-gradient-to-r from-fuchsia-500 to-indigo-500 text-white hover:brightness-110",
-        outline: "border border-white/30 bg-white/5 text-white hover:border-white hover:text-white",
+        outline: "border border-white/30 bg-white/10 text-gray-200 hover:border-white hover:text-white",
         verify: "bg-gradient-to-r from-emerald-500 to-cyan-500 text-white hover:brightness-110",
         submit: "bg-gradient-to-r from-cyan-700 to-emerald-600 text-white hover:brightness-110",
       },

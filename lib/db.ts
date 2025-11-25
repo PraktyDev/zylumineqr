@@ -9,7 +9,7 @@ const users = [
     email: "user@example.com",
     // Hashed password (bcrypt) for "password"
     // You can generate this using: await bcrypt.hash("password", 10)
-    password: "$2a$10$cbV.DqXpGqjJj..." 
+    password: "qwerty123" 
   }
 ]
 
