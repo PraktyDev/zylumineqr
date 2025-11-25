@@ -136,13 +136,14 @@ export default function Home() {
   }
 
   return (
-    <div className="relative min-h-screen overflow-hidden px-6 py-12">
+    <div className="relative min-h-screen overflow-hidden px-6 py-7 md:py-12">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(56,189,248,0.25),transparent_40%)]" />
-      <div className="absolute right-10 top-5">
-        <SignOut />
-      </div>
+
 
       <div className="relative z-10 mx-auto max-w-6xl">
+              <div className="flex items-center justify-end mb-6">
+        <SignOut />
+      </div>
         {/* Header */}
         <header className="mb-10 text-center">
           <p className="text-sm uppercase tracking-[0.5em] text-pink-300">
@@ -156,7 +157,7 @@ export default function Home() {
           </p>
         </header>
 
-        <div className="max-w-2xl mx-auto">
+        <div className="md:max-w-2xl mx-auto">
           {/* Admin Section */}
           <Card>
             <CardHeader>
@@ -245,7 +246,7 @@ export default function Home() {
                 </FieldGroup>
                 <Button
                   variant="submit"
-                  className="w-full mt-5 flex items-center justify-center gap-3"
+                  className="w-full  mt-5 flex items-center justify-center gap-3 text"
                 >
                   {form.formState.isSubmitting ? (
                     <Loader size={15} />

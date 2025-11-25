@@ -5,8 +5,8 @@ import { SessionProvider } from "next-auth/react"
 import { auth } from "@/auth"
 
 export const metadata: Metadata = {
-  title: "Purchase Concierge Portal",
-  description: "Generate, register, and deliver a bespoke post-purchase experience",
+  title: "Zylumine",
+  description: "Generate, register client for purchase",
 }
 export default async function RootLayout({
   children,

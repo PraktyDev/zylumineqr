@@ -12,7 +12,7 @@ export default async function LoginPage() {
   }
 
   return (
-    <div className="relative flex min-h-screen items-center justify-center overflow-hidden px-6 py-12">
+    <div className="relative flex min-h-screen items-center justify-center overflow-hidden px-6 py-7 md:py-12">
       {/* Animated Background Overlay */}
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(56,189,248,0.25),transparent_40%)]" />
       
@@ -46,7 +46,7 @@ export default async function LoginPage() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="relative z-10 w-full max-w-md"
+        className="relative z-10 w-full md:max-w-md"
       >
         <SignIn />
       </motion.div>
