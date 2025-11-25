@@ -272,6 +272,7 @@ export default async function Page() {
       
 
 <div>Email: {session?.user?.email}</div>
+<p>new edit</p>
 </>
 
     
