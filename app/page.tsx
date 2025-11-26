@@ -81,45 +81,15 @@ export default function Home() {
     email: null,
     timestamp: null,
   });
-  const [buyerName, setBuyerName] = useState("");
-  const [buyerEmail, setBuyerEmail] = useState("");
-  // const [clientCode, setClientCode] = useState('')
+
   const [statusMsg, setStatusMsg] = useState("Awaiting action");
-  // const [clientHint, setClientHint] = useState('Once verified, an artfully animated letter and care guide will appear.')
-  // const [showLetter, setShowLetter] = useState(false)
+
   const generatePurchaseCode = () => {
     const code = Math.floor(100000 + Math.random() * 900000).toString();
     const timestamp = new Date();
     setPurchaseData({ ...purchaseData, code, timestamp });
     setStatusMsg("Code is ready. Register the client now.");
   };
-
-  const sendConfirmation = () => {
-    if (!purchaseData.code) {
-      setStatusMsg("Generate a code first before sending.");
-      return;
-    }
-    if (!buyerName.trim() || !buyerEmail.trim()) {
-      setStatusMsg("Please enter both name and email.");
-      return;
-    }
-    setPurchaseData({ ...purchaseData, name: buyerName, email: buyerEmail });
-    setStatusMsg(`Code sent to ${buyerEmail}.`);
-  };
-
-  // const verifyCode = () => {
-  //   if (clientCode.trim() === purchaseData.code) {
-  //     setClientHint('Welcome! Your personalized letter awaits.')
-  //     setShowLetter(true)
-  //   } else {
-  //     setClientHint('That code did not match. Please verify your email.')
-  //   }
-  // }
-  // const formatDate = (date: Date | null) => {
-  //   if (!date) return ''
-  //   const options: Intl.DateTimeFormatOptions = { month: 'long', day: 'numeric', year: 'numeric' }
-  //   return date.toLocaleDateString(undefined, options)
-  // }
 
   useEffect(() => {
     if (status === "unauthenticated") {
@@ -138,12 +108,10 @@ export default function Home() {
   return (
     <div className="relative min-h-screen overflow-hidden px-6 py-7 md:py-12">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(56,189,248,0.25),transparent_40%)]" />
-
-
       <div className="relative z-10 mx-auto max-w-6xl">
-              <div className="flex items-center justify-end mb-6">
-        <SignOut />
-      </div>
+        <div className="flex items-center justify-end mb-6">
+          <SignOut />
+        </div>
         {/* Header */}
         <header className="mb-10 text-center">
           <p className="text-sm uppercase tracking-[0.5em] text-pink-300">
@@ -278,22 +246,3 @@ export default function Home() {
     </div>
   );
 }
-
-// import { auth } from "@/auth"
-// import { redirect } from "next/navigation"
-
-// export default async function DashboardPage() {
-//   const session = await auth()
-
-//   if (!session?.user) {
-//     redirect("/login")
-//   }
-
-//   return (
-//     <div>
-//       <h1>Welcome, {session.user.name}!</h1>
-//       {/* <img src={session.user.image} alt="Profile" /> */}
-//       <p>Email: {session.user.email}</p>
-//     </div>
-//   )
-// }
