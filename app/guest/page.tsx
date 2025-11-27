@@ -49,7 +49,7 @@ const page = () => {
         },
         body: JSON.stringify({
           email: data.email,
-          code: data.code,
+          code: data.code.trim(),
         }),
       });
 
@@ -65,6 +65,7 @@ const page = () => {
       // Do something with the form values.
       toast.success("Code verified!");
       setShowLetter(true);
+      form.reset()
     } catch (error) {
       toast.error("Failed to verify code. Please try again.");
       console.error("Error verifying code:", error);

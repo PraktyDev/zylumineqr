@@ -29,7 +29,6 @@ interface PurchaseData {
   code: string | null;
   name: string | null;
   email: string | null;
-  timestamp: Date | null;
 }
 export default function Home() {
   const { data: session, status } = useSession();
@@ -69,13 +68,15 @@ export default function Home() {
         }),
       });
 
-      if(!res.ok) {
-        toast.error("Failed to send email. Please try again.")
+      if (!res.ok) {
+        toast.error("Failed to send email. Please try again.");
         return;
       }
 
       // Do something with the form values.
       toast.success(data.email + " has been registered!");
+      form.reset()
+      setPurchaseData({ ...purchaseData, code: null });
     } catch (error) {
       toast.error("Failed to send email. Please try again.");
       console.error("Error sending email:", error);
@@ -86,15 +87,13 @@ export default function Home() {
     code: null,
     name: null,
     email: null,
-    timestamp: null,
   });
 
   const [statusMsg, setStatusMsg] = useState("Awaiting action");
 
   const generatePurchaseCode = () => {
     const code = Math.floor(100000 + Math.random() * 900000).toString();
-    const timestamp = new Date();
-    setPurchaseData({ ...purchaseData, code, timestamp });
+    setPurchaseData({ ...purchaseData, code });
     setStatusMsg("Code is ready. Register the client now.");
   };
 

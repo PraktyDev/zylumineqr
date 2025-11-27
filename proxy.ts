@@ -1,8 +1,8 @@
 import { auth } from "@/auth"
 import { NextResponse } from "next/server"
 
-const publicRoutes = ["/login", "/register", "/", "/guest"]
-const authRoutes = ["/login", "/register"]
+const publicRoutes = ["/login", "/", "/guest"]
+const authRoutes = ["/login"]
 
 export default auth((req) => {
   const { nextUrl } = req
@@ -14,6 +14,10 @@ export default auth((req) => {
   // Allow auth API routes to pass through
   if (nextUrl.pathname.startsWith("/api/auth")) {
     return NextResponse.next()
+  }
+
+  if (nextUrl.pathname.startsWith("/api/verify-code")) {
+    return NextResponse.next();
   }
 
   // Redirect logged-in users away from auth pages
@@ -38,5 +42,5 @@ export default auth((req) => {
 })
 
 export const config = {
-  matcher: ["/((?!api/auth|_next/static|_next/image|favicon.ico).*)"],
+  matcher: ["/((?!api/authauth|api/verify-code|_next/static|_next/image|favicon.ico).*)"],
 }
