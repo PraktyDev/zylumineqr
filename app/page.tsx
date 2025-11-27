@@ -49,13 +49,15 @@ export default function Home() {
       return;
     }
     try {
-      await fetch("/api/send-mail", {
+      const res = await fetch("/api/send-mail", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          to: data.email,
+          email: data.email,
+          name: data.name,
+          code: purchaseData.code,
           subject: "Your Purchase Code from Zylumine",
           message: `
             <p>Dear ${data.name},</p>
@@ -66,6 +68,11 @@ export default function Home() {
           `,
         }),
       });
+
+      if(!res.ok) {
+        toast.error("Failed to send email. Please try again.")
+        return;
+      }
 
       // Do something with the form values.
       toast.success(data.email + " has been registered!");
