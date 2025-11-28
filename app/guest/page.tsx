@@ -83,7 +83,7 @@ const page = () => {
   //   };
 
   return (
-    <div className="max-w-lg mx-auto h-screen flex items-center justify-center">
+    <div className="max-w-lg mx-4 md:mx-auto h-screen flex items-center justify-center">
       <div>
         {/* Client Section */}
         <Card className="">
@@ -196,7 +196,7 @@ const page = () => {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.95, opacity: 0 }}
               transition={{ type: "spring", duration: 0.8 }}
-              className="mx-4 max-w-3xl rounded-3xl border border-white/10 bg-linear-to-br from-slate-900/90 to-slate-800/90 p-6 shadow-2xl backdrop-blur-md"
+              className="max-w-3xl rounded-3xl border border-white/10 bg-linear-to-br from-slate-900/90 to-slate-800/90 p-3 mb:p-6 shadow-2xl backdrop-blur-md"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Letter Header */}

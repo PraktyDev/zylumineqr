@@ -158,7 +158,7 @@ const SignIn = () => {
           </div>
           <div className="relative flex justify-center text-xs uppercase">
             <span className="bg-slate-900/50 px-2 text-slate-400 tracking-[0.3em]">
-              Or continue with
+              Or
             </span>
           </div>
         </div>
