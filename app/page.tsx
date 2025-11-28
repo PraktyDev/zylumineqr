@@ -54,7 +54,7 @@ export default function Home() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          email: data.email,
+          email: data.email.trim().toLowerCase(),
           name: data.name,
           code: purchaseData.code,
           subject: "Your Purchase Code from Zylumine",

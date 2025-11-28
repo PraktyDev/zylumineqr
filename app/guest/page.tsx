@@ -48,7 +48,7 @@ const page = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          email: data.email,
+          email: data.email.trim().toLowerCase(),
           code: data.code.trim(),
         }),
       });
