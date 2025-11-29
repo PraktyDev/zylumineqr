@@ -159,7 +159,7 @@ const FeedbackForm = ({ guestName }: { guestName: string }) => {
           <label className="block text-sm font-semibold text-white mb-4">
             Product Quality
           </label>
-          <div className="grid grid-cols-5 gap-2">
+          <div className="grid grid-cols-3 md:grid-cols-5 gap-2">
             {qualityOptions.map((option) => (
               <button
                 key={option}
@@ -186,7 +186,7 @@ const FeedbackForm = ({ guestName }: { guestName: string }) => {
           <label className="block text-sm font-semibold text-white mb-4">
             Would you recommend us?
           </label>
-          <div className="flex gap-4">
+          <div className="flex flex-wrap gap-4">
             <button
               type="button"
               onClick={() => setRecommend("yes")}

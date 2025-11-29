@@ -20,6 +20,10 @@ export default auth((req) => {
     return NextResponse.next();
   }
 
+  if (nextUrl.pathname.startsWith("/api/send-feedback")) {
+    return NextResponse.next();
+  }
+
   // Redirect logged-in users away from auth pages
   if (isAuthRoute && isLoggedIn) {
     return NextResponse.redirect(new URL("/", nextUrl))
@@ -42,5 +46,5 @@ export default auth((req) => {
 })
 
 export const config = {
-  matcher: ["/((?!api/authauth|api/verify-code|_next/static|_next/image|favicon.ico).*)"],
+  matcher: ["/((?!api/authauth|api/verify-code|api/send-feedback|_next/static|_next/image|favicon.ico).*)"],
 }
