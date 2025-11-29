@@ -123,3 +123,110 @@ body {
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
 }
+
+
+/* @theme {
+  --font-serif: "Playfair Display", serif;
+  --font-sans: "Inter", sans-serif;
+  --animate-float: float 3s ease-in-out infinite;
+  --animate-pulse-glow: pulse-glow 2s ease-in-out infinite;
+  --animate-shimmer: shimmer 2s infinite;
+  --animate-heart-beat: heart-beat 1.5s ease-in-out infinite;
+  --animate-spin: spin 1s linear infinite;
+  --animate-fade-in-up: fade-in-up 0.6s ease-out forwards;
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 20px rgba(217, 70, 239, 0.3); }
+    50% { box-shadow: 0 0 40px rgba(217, 70, 239, 0.6); }
+  }
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+  @keyframes heart-beat {
+    0%, 100% { transform: scale(1); }
+    25% { transform: scale(1.1); }
+    50% { transform: scale(1); }
+    75% { transform: scale(1.1); }
+  }
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+} */
+@font-face {
+  font-family: "Inter";
+  src: url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap");
+}
+@font-face {
+  font-family: "Playfair Display";
+  src: url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap");
+}
+* {
+  font-family: "Inter", sans-serif;
+}
+.font-serif {
+  font-family: "Playfair Display", serif;
+}
+.glass-card {
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.9), rgba(51, 65, 85, 0.8));
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.gradient-text {
+  background: linear-gradient(135deg, #f0abfc, #c084fc, #818cf8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.letter-paper {
+  background: linear-gradient(180deg, #fefefe 0%, #f8f5f0 100%);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+.care-card {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.care-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(217, 70, 239, 0.3);
+}
+.step-indicator {
+  transition: all 0.3s ease;
+}
+.step-indicator.active {
+  background: linear-gradient(135deg, #d946ef, #8b5cf6);
+  box-shadow: 0 0 20px rgba(217, 70, 239, 0.5);
+}
+.modal-content {
+  max-height: 90vh;
+  overflow-y: auto;
+}
+.modal-content::-webkit-scrollbar {
+  width: 6px;
+}
+.modal-content::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}
+.modal-content::-webkit-scrollbar-thumb {
+  background: rgba(217, 70, 239, 0.5);
+  border-radius: 3px;
+}
+.loader {
+  border: 2px solid transparent;
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
