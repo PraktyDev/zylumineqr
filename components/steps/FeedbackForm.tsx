@@ -128,7 +128,7 @@ const FeedbackForm = ({ guestName }: { guestName: string }) => {
           className="glass-card rounded-2xl p-6"
         >
           <label className="block text-sm font-semibold text-white mb-4">
-            Overall Experience
+            Overall Experience*
           </label>
           <div className="flex gap-2 text-4xl">
             {[1, 2, 3, 4, 5].map((star) => (
@@ -157,7 +157,7 @@ const FeedbackForm = ({ guestName }: { guestName: string }) => {
           className="glass-card rounded-2xl p-6"
         >
           <label className="block text-sm font-semibold text-white mb-4">
-            Product Quality
+            Product Quality*
           </label>
           <div className="grid grid-cols-3 md:grid-cols-5 gap-2">
             {qualityOptions.map((option) => (
@@ -184,9 +184,9 @@ const FeedbackForm = ({ guestName }: { guestName: string }) => {
           className="glass-card rounded-2xl p-6"
         >
           <label className="block text-sm font-semibold text-white mb-4">
-            Would you recommend us?
+            Would you recommend us?*
           </label>
-          <div className="flex flex-wrap gap-4">
+          <div className="flex flex-col md:flex-row gap-4">
             <button
               type="button"
               onClick={() => setRecommend("yes")}
