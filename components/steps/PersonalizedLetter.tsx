@@ -2,6 +2,7 @@
 import { useState, useRef } from "react";
 import { motion } from "motion/react";
 import { toast } from "sonner";
+import Image from "next/image";
 
 interface PersonalizedLetterProps {
   guestName: string;
@@ -35,7 +36,7 @@ const PersonalizedLetter = ({
         margin: 0.5,
         filename: `Thank_You_Letter_${guestName.replace(/\s+/g, "_")}.pdf`,
         image: { type: "jpeg", quality: 0.98 },
-        html2canvas: { 
+        html2canvas: {
           scale: 2,
           useCORS: true,
           logging: false,
@@ -64,7 +65,8 @@ const PersonalizedLetter = ({
   // html2canvas doesn't support modern CSS color functions (lab, oklch, lch) used by Tailwind v4
   const styles = {
     letterPaper: {
-      background: "linear-gradient(145deg, #fffbf5 0%, #fff9f0 50%, #fffdf8 100%)",
+      background:
+        "linear-gradient(145deg, #fffbf5 0%, #fff9f0 50%, #fffdf8 100%)",
       borderRadius: "1rem",
       padding: "2.5rem",
       color: "#1e293b",
@@ -119,7 +121,7 @@ const PersonalizedLetter = ({
       fontWeight: 600,
     },
     paragraph: {
-      marginBottom: "1.5rem",
+      marginBottom: "2.5rem",
     },
     quoteBox: {
       background: "linear-gradient(90deg, #fdf4ff 0%, #faf5ff 100%)",
@@ -196,19 +198,13 @@ const PersonalizedLetter = ({
         {/* Letterhead */}
         <div style={styles.letterhead}>
           <div style={styles.logo}>
-            <svg
-              style={{ width: "2rem", height: "2rem", color: "white" }}
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
+              <Image
+                alt='logo'
+                src='/z-logo.jpg'
+                width={50}
+                height={50}
+                className="h-7 w-7 rounded-full text-[#cca666] transition-transform duration-300 group-hover:scale-110 group-hover:rotate-12"
               />
-            </svg>
           </div>
           <h2 style={styles.companyName}>Zylumine</h2>
           <p style={styles.tagline}>Crafted with Excellence</p>
@@ -217,49 +213,74 @@ const PersonalizedLetter = ({
         {/* Letter Body */}
         <div style={styles.letterBody}>
           <p style={styles.date}>{formattedDate}</p>
-          
+
           <h3 style={styles.greeting}>
             Dear <span style={styles.guestName}>{guestName}</span>,
           </h3>
-          
-          <motion.p {...fadeInUp} transition={{ delay: 0.1 }} style={styles.paragraph}>
-            We are absolutely thrilled to welcome you into our family of
-            distinguished patrons! Your recent purchase represents more than
-            just a transaction – it&apos;s the beginning of a beautiful journey
-            together.
+
+          <motion.p
+            {...fadeInUp}
+            transition={{ delay: 0.1 }}
+            style={styles.paragraph}
+          >
+            You didn’t just pick this piece, it found you. Long before this
+            moment, intention was already at work. Nothing about you is
+            accidental, not your story, not your timing, not even your becoming.
           </motion.p>
-          
-          <motion.p {...fadeInUp} transition={{ delay: 0.2 }} style={styles.paragraph}>
-            Each piece in our collection is meticulously crafted with unwavering
-            attention to detail, premium materials, and the passion of skilled
-            artisans who pour their hearts into every creation. Your discerning
-            taste in choosing our product speaks volumes about your appreciation
-            for quality and craftsmanship.
+
+          <motion.p
+            {...fadeInUp}
+            transition={{ delay: 0.2 }}
+            style={styles.paragraph}
+          >
+            This piece was created with intention, just like you were. Not
+            rushed, but chosen. Wherever life finds you right now, whether you
+            feel full of confidence or facing life’s challenges, you are seen,
+            with love from the very beginning, and without condition.
           </motion.p>
-          
-          <motion.div {...fadeInUp} transition={{ delay: 0.3 }} style={styles.quoteBox}>
+
+          <motion.div
+            {...fadeInUp}
+            transition={{ delay: 0.3 }}
+            style={styles.quoteBox}
+          >
             <p style={styles.quoteText}>
-              &quot;We believe that every product should not only serve its
-              purpose but should bring joy and satisfaction to its owner for
-              years to come.&quot;
+              &quot;There is light around you, and starting today, it will feel
+              clearer and closer to you. There is purpose woven into you, and
+              you will walk your path with clarity. And there is peace available
+              to you, and your seasons are guided with certainty.&quot;
             </p>
           </motion.div>
-          
-          <motion.p {...fadeInUp} transition={{ delay: 0.4 }} style={styles.paragraph}>
-            Your new acquisition will serve you faithfully, combining
-            functionality with elegance in perfect harmony. We&apos;ve designed
-            it to seamlessly integrate into your lifestyle, enhancing your daily
-            experiences with its thoughtful features and timeless design.
+
+          <motion.p
+            {...fadeInUp}
+            transition={{ delay: 0.4 }}
+            style={styles.paragraph}
+          >
+            May this piece rest on you as a reminder: there is a light that
+            knows your name, a peace that doesn’t rush you, a purpose unfolding
+            gently, step by step, and you are allowed to become who you were
+            always meant to be.
           </motion.p>
-          
-          <motion.p {...fadeInUp} transition={{ delay: 0.5 }} style={styles.paragraph}>
-            Should you ever need assistance, our dedicated support team is
-            always here for you. We don&apos;t just sell products; we build
-            lasting relationships with our valued customers.
+
+          <motion.p
+            {...fadeInUp}
+            transition={{ delay: 0.5 }}
+            style={styles.paragraph}
+          >
+            Let it sit on your body like reassurance. Let it speak to your heart
+            on days words feel heavy. Thank you for choosing something made with
+            care, depth, and meaning.
           </motion.p>
-          
-          <motion.div {...fadeInUp} transition={{ delay: 0.6 }} style={styles.signatureSection}>
+
+          <motion.div
+            {...fadeInUp}
+            transition={{ delay: 0.6 }}
+            style={styles.signatureSection}
+          >
             <p style={styles.regards}>
+              Thank you for choosing Zylumine. Wear this knowing that light
+              recognizes light, and you were never created to live without it.
               With warmest regards and heartfelt gratitude,
             </p>
             <p style={styles.signatureName}>The Zylumine Team</p>
@@ -276,7 +297,7 @@ const PersonalizedLetter = ({
             <div style={{ ...styles.dot, background: "#a855f7" }}></div>
             <div style={{ ...styles.dot, background: "#6366f1" }}></div>
           </div>
-          <p style={styles.certificateText}>Certificate of Authenticity</p>
+          {/* <p style={styles.certificateText}>Certificate of Authenticity</p> */}
         </div>
       </div>
 
@@ -290,9 +311,7 @@ const PersonalizedLetter = ({
         >
           {isDownloading ? (
             <>
-              <div 
-                className="w-5 h-5 border-2 border-transparent border-t-white rounded-full animate-spin"
-              />
+              <div className="w-5 h-5 border-2 border-transparent border-t-white rounded-full animate-spin" />
               <span>Generating PDF...</span>
             </>
           ) : (

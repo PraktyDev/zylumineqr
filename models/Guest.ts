@@ -13,7 +13,11 @@ const guestSchema = new Schema({
     code: {
         type: String,
         required: true,
-    }
+    },
+    // letter: {
+    //     type: String,
+    //     required: true,
+    // }
 },{ timestamps: true });
 
 const Guest = models.Guest || model("Guest", guestSchema);

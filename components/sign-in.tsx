@@ -17,6 +17,7 @@ import { Field, FieldError, FieldGroup } from "@/components/ui/field";
 import { signIn } from "next-auth/react";
 import { Loader } from "lucide-react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 const formSchema = z.object({
   email: z.email("Enter a valid email address."),
@@ -73,7 +74,13 @@ const SignIn = () => {
           transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
           className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-linear-to-br from-fuchsia-500 to-indigo-500 shadow-lg shadow-fuchsia-500/50"
         >
-          <div className="h-8 w-8 rounded-full border-2 border-white/80" />
+              <Image
+                alt='logo'
+                src='/z-logo.JPG'
+                width={50}
+                height={50}
+                className="h-7 w-7 rounded-full text-[#cca666] transition-transform duration-300 group-hover:scale-110 group-hover:rotate-12"
+              />
         </motion.div>
         <div>
           <p className="text-xs uppercase tracking-[0.5em] text-pink-300">

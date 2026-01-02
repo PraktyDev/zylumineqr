@@ -19,16 +19,19 @@ import { Loader, RefreshCcw, Send } from "lucide-react";
 import { useSession } from "next-auth/react";
 import { SignOut } from "@/components/sign-out";
 import { useRouter } from "next/navigation";
+import { Textarea } from "@/components/ui/textarea";
 
 const formSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters."),
   email: z.email("Enter a valid email address."),
+  // letter: z.string("Enter curated letter for client")
 });
 
 interface PurchaseData {
   code: string | null;
   name: string | null;
   email: string | null;
+  // letter: string | null;
 }
 export default function Home() {
   const { data: session, status } = useSession();
@@ -39,6 +42,7 @@ export default function Home() {
     defaultValues: {
       name: "",
       email: "",
+      // letter: ""
     },
   });
 
@@ -87,6 +91,7 @@ export default function Home() {
     code: null,
     name: null,
     email: null,
+    // letter: null
   });
 
   const [statusMsg, setStatusMsg] = useState("Awaiting action");
@@ -217,6 +222,25 @@ export default function Home() {
                       </Field>
                     )}
                   />
+                  {/* <Controller
+                    name="letter"
+                    control={form.control}
+                    render={({ field, fieldState }) => (
+                      <Field data-invalid={fieldState.invalid}>
+                        <Textarea
+                          {...field}
+                          rows={7}
+                          id="letter"
+                          aria-invalid={fieldState.invalid}
+                          placeholder="Buyer's Curated Letter"
+                          className="w-full rounded-2xl border border-white/20 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-slate-400 focus:border-fuchsia-400 focus:outline-none focus:ring-2 focus:ring-fuchsia-400/20 transition-all"
+                        />
+                        {fieldState.invalid && (
+                          <FieldError errors={[fieldState.error]} />
+                        )}
+                      </Field>
+                    )}
+                  /> */}
                 </FieldGroup>
                 <Button
                   variant="submit"

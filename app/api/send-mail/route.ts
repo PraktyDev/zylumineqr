@@ -6,9 +6,11 @@ import { ConnectToDB } from "@/lib/connectToDB";
 export async function POST(req: Request) {
   await ConnectToDB();
   try {
+    // const { email, subject, message, name, code, letter } = await req.json();
     const { email, subject, message, name, code } = await req.json();
 
-    if (!email || !subject || !message || !name || !code) {
+    // if (!email || !subject || !message || !name || !code || !letter) {
+    if (!email || !subject || !message || !name || !code ) {
       return NextResponse.json(
         { error: "Missing required fields" },
         { status: 400 }
@@ -16,6 +18,7 @@ export async function POST(req: Request) {
     }
 
     // Save guest to database
+    // const newGuest = new Guest({ email, name, code, letter });
     const newGuest = new Guest({ email, name, code });
     await newGuest.save();
 
