@@ -25,10 +25,10 @@ export default async function RootLayout({
       <body className="min-h-screen">
         <SessionProvider session={session}>
         <div 
-          className="fixed inset-0 -z-10"
-          style={{
-            background: `radial-gradient(circle at top, rgba(236, 72, 153, 0.4), transparent 45%), radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.45), transparent 40%), #030712`
-          }}
+          className="fixed inset-0 -z-10 bg-[#0C0F25]"
+          // style={{
+          //   background: `radial-gradient(circle at top, rgba(236, 72, 153, 0.4), transparent 45%), radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.45), transparent 40%), #030712`
+          // }}
         />
         {children}
         <Toaster />

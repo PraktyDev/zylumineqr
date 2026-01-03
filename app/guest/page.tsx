@@ -94,28 +94,36 @@ const page = () => {
     };
 
   return (
-    <div className="max-w-lg mx-4 md:mx-auto h-screen flex items-center justify-center">
+    // <div className="max-w-lg mx-4 md:mx-auto h-screen flex items-center justify-center">
+      <div className="relative mx-4 flex h-screen max-w-lg items-center justify-center md:mx-auto bg-[#0C0F25]">
+
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-fuchsia-500/10 rounded-full blur-3xl"></div>
+        {/* <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-fuchsia-500/10 rounded-full blur-3xl"></div> */}
+        <div className="absolute top-1/4 left-1/4 h-96 w-96 rounded-full bg-[#EFDFAB]/10 blur-3xl" />
+<div className="absolute bottom-1/4 right-1/4 h-96 w-96 rounded-full bg-[#EFDFAB]/5 blur-3xl" />
+
       </div>
       <div>
         {/* Client Section */}
-        <Card className="">
+        {/* <Card className=""> */}
+        <Card className="relative z-10 border border-white/10 bg-[#0C0F25]/85 backdrop-blur-xl shadow-2xl shadow-black/40">
           <CardHeader>
             <div className="flex items-center justify-between mb-2">
               <div>
                 <p className="text-xs uppercase tracking-[0.35em] text-slate-400 mb-2">
                   Client Journey
                 </p>
-                <CardTitle className="text-2xl md:text-3xl font-bold gradient-text">
+                <CardTitle className="text-2xl md:text-3xl font-bold text-[#EFDFAB]/70">
                   Scan & Verify
                 </CardTitle>
                 <CardDescription className="text-slate-400 text-sm mt-2">
                   Enter the mailed code to unlock your care guide.
                 </CardDescription>
               </div>
-              <div className="w-11 h-11 rounded-full bg-linear-to-br  from-[#0C0f25] to-purple-600 flex items-center justify-center animate-pulse-glow">
+              {/* <div className="w-11 h-11 rounded-full bg-linear-to-br  from-[#0C0f25] to-purple-600 flex items-center justify-center animate-pulse-glow"> */}
+                <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#EFDFAB]/20 shadow-md shadow-[#EFDFAB]/30">
+
               <Image
                 alt='logo'
                 src='/zlogo.jpg'
@@ -145,7 +153,7 @@ const page = () => {
                         aria-invalid={fieldState.invalid}
                         placeholder="Email"
                         // className="w-full rounded-2xl border border-white/20 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-slate-400 focus:border-fuchsia-400 focus:outline-none focus:ring-2 focus:ring-fuchsia-400/20 transition-all"
-                        className="w-full rounded-2xl border border-white/20 bg-white/5 px-5 py-4 text-sm text-white placeholder:text-slate-400 focus:border-fuchsia-400 focus:ring-2 focus:ring-fuchsia-400/20 transition-all outline-none"
+                        className="w-full rounded-2xl border border-white/20 bg-white/5 px-5 py-4 text-sm text-white placeholder:text-slate-400  focus:border-[#EFDFAB] focus:ring-2 focus:ring-[#EFDFAB]/20 transition-all outline-none"
                       />
                       {fieldState.invalid && (
                         <FieldError errors={[fieldState.error]} />
@@ -164,7 +172,7 @@ const page = () => {
                         aria-invalid={fieldState.invalid}
                         placeholder="******"
                         // className="w-full rounded-2xl border border-white/20 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-slate-400 focus:border-fuchsia-400 focus:outline-none focus:ring-2 focus:ring-fuchsia-400/20 transition-all"
-                        className="w-full rounded-2xl border border-white/20 bg-white/5 px-5 py-4 text-sm text-white placeholder:text-slate-400 focus:border-fuchsia-400 focus:ring-2 focus:ring-fuchsia-400/20 transition-all tracking-[0.5em] text-center outline-none"
+                        className="w-full rounded-2xl border border-white/20 bg-white/5 px-5 py-4 text-sm text-white placeholder:text-slate-400 focus:border-[#EFDFAB]  focus:ring-2 focus:ring-[#EFDFAB]/20 transition-all tracking-[0.5em] text-center outline-none"
                       />
                       {fieldState.invalid && (
                         <FieldError errors={[fieldState.error]} />
@@ -176,7 +184,7 @@ const page = () => {
 
               <Button
                 type="submit"
-                className="w-full py-4 rounded-2xl bg-linear-to-r from-fuchsia-500 to-purple-600 text-white font-semibold text-sm uppercase tracking-wider hover:from-fuchsia-600 hover:to-purple-700 transition-all transform hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-2 disabled:opacity-70 cursor-pointer"
+                className="w-full py-4 rounded-2xl bg-[#EFDFAB]  text-[#0C0F25]  hover:bg-[#EFDFAB]/90  shadow-lg shadow-[#EFDFAB]/25 font-semibold text-sm uppercase tracking-wider  transition-all transform hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-2 disabled:opacity-70 cursor-pointer"
                 disabled={form.formState.isSubmitting}
               >
                 {form.formState.isSubmitting ? (
@@ -232,7 +240,7 @@ const page = () => {
                     Personalized Letter
                   </p>
                   <h3 className="text-2xl font-semibold">
-                    Dear <span className="text-fuchsia-300">{guestInfo.name}</span>,
+                    Dear <span className="text-[#EFDFAB]">{guestInfo.name}</span>,
                   </h3>
                 </div>
                 <button
@@ -283,7 +291,7 @@ const page = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2 + index * 0.1 }}
                     onClick={()=>{setCurrentStep(Number(item.step))}}
-                    className={`animate-float-step cursor-pointer rounded-2xl bg-white/5 p-4 text-sm ${currentStep === Number(item.step) ? "ring-fuchsia-500 ring" : "border-white/10 border"} `}
+                    className={`animate-float-step cursor-pointer rounded-2xl bg-white/5 p-4 text-sm ${currentStep === Number(item.step) ? "ring-[#EFDFAB] ring" : "border-white/10 border"} `}
                   >
                     <p className="text-xs uppercase tracking-[0.4em] text-slate-400">
                       Step {item.step}

@@ -84,7 +84,7 @@ const PersonalizedLetter = ({
       height: "4rem",
       margin: "0 auto 1rem",
       borderRadius: "50%",
-      background: "linear-gradient(135deg, #e879f9 0%, #9333ea 100%)",
+      background: "linear-gradient(135deg, #EFDFAB 0%, #EFDFAB 70%)",
       display: "flex",
       alignItems: "center",
       justifyContent: "center",
@@ -117,7 +117,7 @@ const PersonalizedLetter = ({
       marginBottom: "1.5rem",
     },
     guestName: {
-      color: "#c026d3",
+      color: "#0C0F25",
       fontWeight: 600,
     },
     paragraph: {
@@ -127,7 +127,7 @@ const PersonalizedLetter = ({
       background: "linear-gradient(90deg, #fdf4ff 0%, #faf5ff 100%)",
       borderRadius: "0.75rem",
       padding: "1.25rem",
-      borderLeft: "4px solid #d946ef",
+      borderLeft: "4px solid #0C0F25",
       marginBottom: "1.5rem",
     },
     quoteText: {
@@ -200,10 +200,10 @@ const PersonalizedLetter = ({
           <div style={styles.logo}>
               <Image
                 alt='logo'
-                src='/z-logo.jpg'
+                src='/zlogo.jpg'
                 width={50}
                 height={50}
-                className="h-7 w-7 rounded-full text-[#cca666] transition-transform duration-300 group-hover:scale-110 group-hover:rotate-12"
+                className="h-14 w-14 rounded-full text-[#cca666] transition-transform duration-300 group-hover:scale-110 group-hover:rotate-12"
               />
           </div>
           <h2 style={styles.companyName}>Zylumine</h2>
