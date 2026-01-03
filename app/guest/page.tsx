@@ -115,13 +115,13 @@ const page = () => {
                   Enter the mailed code to unlock your care guide.
                 </CardDescription>
               </div>
-              <div className="w-12 h-12 rounded-full bg-linear-to-br from-fuchsia-500 to-purple-600 flex items-center justify-center animate-pulse-glow">
+              <div className="w-11 h-11 rounded-full bg-linear-to-br  from-[#0C0f25] to-purple-600 flex items-center justify-center animate-pulse-glow">
               <Image
                 alt='logo'
-                src='/z-logo.jpg'
-                width={50}
-                height={50}
-                className="h-7 w-7 rounded-full text-[#cca666] transition-transform duration-300 group-hover:scale-110 group-hover:rotate-12"
+                src='/zlogo.jpg'
+                width={100}
+                height={100}
+                className="h-10 w-10 rounded-full text-[#cca666] transition-transform duration-300 group-hover:scale-110 group-hover:rotate-12"
               />
               </div>
             </div>
@@ -311,3 +311,8 @@ const page = () => {
 };
 
 export default page;
+
+
+
+// #0C0f25
+// #efdfab

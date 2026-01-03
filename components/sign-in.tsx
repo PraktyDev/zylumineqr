@@ -76,10 +76,10 @@ const SignIn = () => {
         >
               <Image
                 alt='logo'
-                src='/z-logo.JPG'
-                width={50}
-                height={50}
-                className="h-7 w-7 rounded-full text-[#cca666] transition-transform duration-300 group-hover:scale-110 group-hover:rotate-12"
+                src='/zlogo.jpg'
+                width={100}
+                height={100}
+                className="h-15 w-15 rounded-full text-[#cca666] transition-transform duration-300 group-hover:scale-110 group-hover:rotate-12"
               />
         </motion.div>
         <div>

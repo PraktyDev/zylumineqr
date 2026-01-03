@@ -42,9 +42,20 @@ export default auth((req) => {
     )
   }
 
+  if (nextUrl.pathname.match(/\.(jpg|jpeg|png|svg|gif|webp)$/)) {
+  return NextResponse.next()
+}
+
+
   return NextResponse.next()
 })
 
+// export const config = {
+//   matcher: ["/((?!api/authauth|api/verify-code|api/send-feedback|_next/static|_next/image|favicon.ico).*)"],
+// }
+
 export const config = {
-  matcher: ["/((?!api/authauth|api/verify-code|api/send-feedback|_next/static|_next/image|favicon.ico).*)"],
+  matcher: [
+    "/((?!api/auth|api/verify-code|api/send-feedback|_next/static|_next/image|favicon.ico|.*\\.(?:jpg|jpeg|png|svg|gif|webp)$).*)",
+  ],
 }
