@@ -271,8 +271,8 @@ const page = () => {
                 {[
                   {
                     step: "1",
-                    title: "Unbox with intention",
-                    desc: "Capture the moment.",
+                    title: "A Letter From the Founder to You",
+                    desc: "Click to view",
                   },
                   {
                     step: "2",
