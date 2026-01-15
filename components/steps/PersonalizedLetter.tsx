@@ -148,6 +148,12 @@ const PersonalizedLetter = ({
       fontStyle: "italic",
       marginTop: "1rem",
     },
+    signatureSubName: {
+      fontFamily: "Georgia, 'Times New Roman', serif",
+      fontSize: "0.75rem",
+      color: "#334155",
+      marginTop: "0.5rem",
+    },
     signatureSubtitle: {
       fontSize: "0.75rem",
       color: "#94a3b8",
@@ -283,7 +289,8 @@ const PersonalizedLetter = ({
               recognizes light, and you were never created to live without it.
               With warmest regards and heartfelt gratitude,
             </p>
-            <p style={styles.signatureName}>The Zylumine Team</p>
+            <p style={styles.signatureName}>Zylumine Clothing Care</p>
+            <p style={styles.signatureSubName}>Odekpe Blessing M.E</p>
             <p style={styles.signatureSubtitle}>
               Creating Excellence, One Product at a Time
             </p>
