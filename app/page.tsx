@@ -46,46 +46,89 @@ export default function Home() {
     },
   });
 
-  async function onSubmit(data: z.infer<typeof formSchema>) {
-    if (!purchaseData.code) {
-      setStatusMsg("Generate a code first before sending.");
+  // async function onSubmit(data: z.infer<typeof formSchema>) {
+  //   if (!purchaseData.code) {
+  //     setStatusMsg("Generate a code first before sending.");
+  //     return;
+  //   }
+  //   try {
+  //     const res = await fetch("/api/send-mail", {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify({
+  //         email: data.email.trim().toLowerCase(),
+  //         name: data.name,
+  //         code: purchaseData.code,
+  //         subject: "Your Purchase Code from Zylumine",
+  //         message: `
+  //           <p>Dear ${data.name},</p>
+  //           <p>Thank you for your purchase! Your unique purchase code is:</p>
+  //           <h2 style="font-family: monospace; background-color: #f0f0f0; padding: 10px; display: inline-block;">${purchaseData.code}</h2>
+  //           <p>Please keep this code safe as it will be required for future reference.</p>
+  //           <p>Best regards,<br/>Zylumine Team</p>
+  //         `,
+  //       }),
+  //     });
+
+  //     if (!res.ok) {
+  //       toast.error("Failed to send email. Please try again.");
+  //       return;
+  //     }
+
+  //     // Do something with the form values.
+  //     toast.success(data.email + " has been registered!");
+  //     form.reset()
+  //     setPurchaseData({ ...purchaseData, code: null });
+  //   } catch (error) {
+  //     toast.error("Failed to send email. Please try again.");
+  //     console.error("Error sending email:", error);
+  //   }
+  // }
+
+async function onSubmit(data: z.infer<typeof formSchema>) {
+  if (!purchaseData.code) {
+    setStatusMsg("Generate a code first before sending.");
+    return;
+  }
+  try {
+    const res = await fetch("/api/send-mail", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: data.email.trim().toLowerCase(),
+        name: data.name,
+        code: purchaseData.code,
+        subject: "Your Purchase Code from Zylumine",
+        message: `
+          <p>Dear ${data.name},</p>
+          <p>Thank you for your purchase! Your unique purchase code is:</p>
+          <h2 style="font-family: monospace; background-color: #f0f0f0; padding: 10px; display: inline-block;">${purchaseData.code}</h2>
+          <p>Please keep this code safe as it will be required for future reference.</p>
+          <p>Best regards,<br/>Zylumine Team</p>
+        `,
+      }),
+    });
+
+    const result = await res.json();
+
+    if (!res.ok) {
+      toast.error(result?.error || "Failed to send email. Please try again.");
       return;
     }
-    try {
-      const res = await fetch("/api/send-mail", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email: data.email.trim().toLowerCase(),
-          name: data.name,
-          code: purchaseData.code,
-          subject: "Your Purchase Code from Zylumine",
-          message: `
-            <p>Dear ${data.name},</p>
-            <p>Thank you for your purchase! Your unique purchase code is:</p>
-            <h2 style="font-family: monospace; background-color: #f0f0f0; padding: 10px; display: inline-block;">${purchaseData.code}</h2>
-            <p>Please keep this code safe as it will be required for future reference.</p>
-            <p>Best regards,<br/>Zylumine Team</p>
-          `,
-        }),
-      });
 
-      if (!res.ok) {
-        toast.error("Failed to send email. Please try again.");
-        return;
-      }
-
-      // Do something with the form values.
-      toast.success(data.email + " has been registered!");
-      form.reset()
-      setPurchaseData({ ...purchaseData, code: null });
-    } catch (error) {
-      toast.error("Failed to send email. Please try again.");
-      console.error("Error sending email:", error);
-    }
+    // Do something with the form values.
+    toast.success(data.email + " has been registered!");
+    form.reset();
+    setPurchaseData({ ...purchaseData, code: null });
+  } catch (error) {
+    toast.error("Failed to send email. Please try again.");
+    console.error("Error sending email:", error);
   }
+}
 
   const [purchaseData, setPurchaseData] = useState<PurchaseData>({
     code: null,
